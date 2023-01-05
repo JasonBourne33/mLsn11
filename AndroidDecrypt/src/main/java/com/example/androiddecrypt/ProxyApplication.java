@@ -112,6 +112,8 @@ public class ProxyApplication extends Application {
         try {
             ApplicationInfo applicationInfo = getPackageManager().getApplicationInfo(
                     getPackageName(), PackageManager.GET_META_DATA);
+//            ApplicationInfo applicationInfo = getPackageManager().getApplicationInfo(
+//                    getPackageName(), PackageManager.ApplicationInfoFlags.of(PackageManager.GET_META_DATA));
             Bundle metaData = applicationInfo.metaData;
             if (null != metaData) {
                 if (metaData.containsKey("app_name")) {
@@ -208,9 +210,11 @@ public class ProxyApplication extends Application {
 //        ActivityThread--->mAllApplications(ArrayList)       ContextImpl的mMainThread属性
         Field mAllApplicationsField = activityThreadClass.getDeclaredField("mAllApplications");
         mAllApplicationsField.setAccessible(true);
-        ArrayList<Application> mAllApplications =(ArrayList<Application>) mAllApplicationsField.get(mMainThread);
-        mAllApplications.remove(this);
-        mAllApplications.add(delegate);
+        if(mAllApplicationsField.get(mMainThread) instanceof ArrayList) {
+            ArrayList<Application> mAllApplications = (ArrayList<Application>) mAllApplicationsField.get(mMainThread);
+            mAllApplications.remove(this);
+            mAllApplications.add(delegate);
+        }
 
 //        LoadedApk------->mApplication                      ContextImpl的mPackageInfo属性
         Field mPackageInfoField = contextImplClass.getDeclaredField("mPackageInfo");

@@ -4,10 +4,11 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
+import org.jetbrains.annotations.Nullable;
 
 
 public class MyProvider extends ContentProvider {

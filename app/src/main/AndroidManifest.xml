@@ -30,6 +30,19 @@
         <meta-data android:name="app_name" android:value="com.example.mlsn11.MyApplication"/>
         <!--用于dex后的目录名_版本号-->
         <meta-data android:name="app_version" android:value="\dexDir_1.0"/>
+
+
+        <service android:name=".MyService"/>
+        <receiver android:name=".MyBroadCastReciver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.dongnao.broadcast.test"/>
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:authorities="com.example.administrator.lsn_11_demo.MyProvider"
+            android:name=".MyProvider"/>
     </application>
 
 </manifest>

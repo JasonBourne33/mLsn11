@@ -3,7 +3,7 @@
     package="com.example.androiddecrypt" >
 
     <uses-sdk
-        android:minSdkVersion="33"
+        android:minSdkVersion="28"
         android:targetSdkVersion="33" />
 
 </manifest>
