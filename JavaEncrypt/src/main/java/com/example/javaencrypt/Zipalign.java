@@ -14,7 +14,7 @@ public class Zipalign {
         File jks = new File("JavaProtect/chaosKey.jks");
         String zipCmd="cmd /c zipalign -v -p 4 "+unSignedApk.getAbsolutePath()
                 +" "+alignedApk.getAbsolutePath();
-        System.out.println("SignatureCmd=== " + zipCmd);
+        System.out.println("zipalignCmd=== " + zipCmd);
 
         Process process = Runtime.getRuntime().exec(zipCmd);
 //        System.out.println("start sign");
