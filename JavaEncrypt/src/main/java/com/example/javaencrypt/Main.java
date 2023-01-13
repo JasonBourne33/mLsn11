@@ -41,6 +41,7 @@ public class Main {
         AES.init(AES.DEFAULT_PWD);
         for (File dexFile : dexFiles) {
             byte[] bytes = Utils.getBytes(dexFile);
+            int length = bytes.length;
             byte[] encrypt = AES.encrypt(bytes);
             FileOutputStream fos = new FileOutputStream(new File(apkTemp,
                     "secret-" + dexFile.getName()));
